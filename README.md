@@ -69,3 +69,14 @@ Acknowledge all utilized sources, including any sources of third-party code, usi
 
 ### I.
 Demonstrate professional communication in the content and presentation of your submission.
+
+## WEB LINKS
+[Labs on Demand Assessment Environment and DVD Database](https://lrps.wgu.edu/provision/271010110)
+
+[Panopto Access](https://wgu.hosted.panopto.com/)
+Sign in using the "WGU" option. If prompted, log in with your WGU student portal credentials, which should forward you to Panopto's website. If you have any problems accessing Panopto, please contact Assessment Services at assessmentservices@wgu.edu. It may take up to two business days to receive your WGU Panopto recording permissions once you have begun the course.
+
+[Panopto How-To Videos](https://wgu.hosted.panopto.com/)
+
+[Skillable Labs Knowledge Base Article](https://cm.wgu.edu/t5/Frequently-Asked-Questions/Skillable-Labs/ta-p/44302)
+Please consult this WGU Knowledge Base article for general FAQs regarding your Skillable lab environment.
