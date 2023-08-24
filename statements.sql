@@ -13,6 +13,7 @@ SELECT
     c.create_date, --customer
     p.amount, --payment
     p.payment_date --payment
+    p.payment_id --payment
 INTO report_detailed
 FROM customer c
 JOIN payment p ON c.customer_id = p.customer_id
@@ -53,7 +54,8 @@ INSERT INTO report_detailed(
         c.email, --customer
         c.create_date, --customer
         p.amount, --payment
-        p.payment_date --payment
+        p.payment_date, --payment
+        p.payment_id --payment
     FROM customer c
     JOIN payment p ON c.customer_id = p.customer_id
     ORDER BY c.store_id, c.customer_id, p.payment_date
@@ -81,3 +83,11 @@ CREATE TRIGGER refresh_reports
 AFTER INSERT ON payment
 FOR EACH ROW
 EXECUTE PROCEDURE refresh_reports();
+
+-- Test the trigger and select from the detailed table to see the results
+INSERT INTO payment VALUES (999999, 1, 1, 1, 2.99, '2021-01-01 00:00:00.000000');
+SELECT * FROM report_detailed WHERE payment_id = 999999;
+ORDER BY payment_date DESC;
+
+-- Delete test data
+DELETE FROM payment WHERE payment_id = 999999;
