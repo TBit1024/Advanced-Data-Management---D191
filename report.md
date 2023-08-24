@@ -14,7 +14,8 @@ Summary Table
 - Payment : amount (sum)
 - Calculation : total_spend
 - Calculation : avg_spend_per_month
-- Calculation : date¬_of_last_purchase
+- Calculation : date_of_last_purchase
+
 Detailed Table
 - Customer : customer_id
 - Customer : store_id
