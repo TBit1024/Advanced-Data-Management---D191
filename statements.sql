@@ -1,93 +1,77 @@
--- Drop tables to start from scratch for report building
-DROP TABLE IF EXISTS report_detailed;
-DROP TABLE IF EXISTS report_summary;
-
--- Load data from customer and payment tables and insert into detailed table. Create table as select.
+-- Generate Detailed Report table --
+-- Report details all payments made by inactive customers --
+DROP TABLE IF EXISTS inactive_customers;
 SELECT
-    c.store_id, --customer
-    c.customer_id, --customer, payment
-    c.first_name, --customer
-    c.last_name, --customer
-    c.first_name || ' ' || c.last_name AS full_name, --customer
-    c.email, --customer
-    c.create_date, --customer
-    p.amount, --payment
-    p.payment_date --payment
-    p.payment_id --payment
-INTO report_detailed
+    c.store_id,
+    c.customer_id,
+    c.active,
+    c.first_name || ' ' || c.last_name AS full_name,
+    c.email,
+    c.create_date,
+    p.amount,
+    p.payment_date,
+    p.payment_id
+INTO inactive_customers
 FROM customer c
 JOIN payment p ON c.customer_id = p.customer_id
-ORDER BY c.store_id, c.customer_id, p.payment_date
+WHERE active = 0
+ORDER BY c.store_id, c.customer_id, p.payment_date;
+
+-- View the detailed report table --
+SELECT * FROM inactive_customers;
 
 
--- Create report_summary table, including three new calculated columns: total_spend, avg_spend_per_month, and date_of_last_purchase
+
+-- Generate Summary Report table --
+-- Report indicates loss of revenue due to inactive customers per store --
+DROP TABLE IF EXISTS inactive_customers_by_store;
 SELECT
     store_id,
-    customer_id,
-    first_name,
-    last_name,
-    email,
-    create_date,
-    SUM(amount) AS total_spend,
-    SUM(amount)/COUNT(DISTINCT DATE_TRUNC('month', payment_date)) AS avg_spend_per_month,
-    MAX(payment_date) AS date_of_last_purchase
-INTO report_summary
-FROM report_detailed
-GROUP BY store_id, customer_id, first_name, last_name, email, create_date
-ORDER BY store_id, customer_id;
+    COUNT(DISTINCT customer_id) AS num_inactive_customers,
+    SUM(amount)/COUNT(DISTINCT DATE_TRUNC('month', payment_date))/num_inactive_customers AS avg_spend_per_month,
+    COUNT(store_id) AS num_payments
+INTO inactive_customers_by_store
+FROM inactive_customers
+GROUP BY store_id
 
--- Stored procedure to refresh the data in both the detailed table and summary table. The procedure should clear the contents of the detailed table and summary table and perform the raw data extraction and transformation steps again.
-CREATE OR REPLACE FUNCTION refresh_reports()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-AS $$
+-- View the summary report table --
+SELECT * FROM inactive_customers_by_store;
+
+
+
+-- Refresh data in the summary report by clearing all data and re-running the query --
+CREATE OR REPLACE FUNCTION refresh_inactive_customers_by_store()
+RETURNS TRIGGER LANGUAGE plpgsql AS $$
 BEGIN
-DELETE FROM report_detailed; --clear the contents of the detailed table
-DELETE FROM report_summary; --clear the contents of the summary table
-INSERT INTO report_detailed(
+    DELETE FROM inactive_customers_by_store;
+    INSERT INTO inactive_customers_by_store
     SELECT
-        c.store_id, --customer
-        c.customer_id, --customer, payment
-        c.first_name, --customer
-        c.last_name, --customer
-        c.first_name || ' ' || c.last_name AS full_name, --customer
-        c.email, --customer
-        c.create_date, --customer
-        p.amount, --payment
-        p.payment_date, --payment
-        p.payment_id --payment
-    FROM customer c
-    JOIN payment p ON c.customer_id = p.customer_id
-    ORDER BY c.store_id, c.customer_id, p.payment_date
-);
-INSERT INTO report_summary( 
-    SELECT 
         store_id,
-        customer_id,
-        first_name,
-        last_name,
-        email,
-        create_date,
-        SUM(amount) AS total_spend,
-        SUM(amount)/COUNT(DISTINCT DATE_TRUNC('month', payment_date)) AS avg_spend_per_month,
-        MAX(payment_date) AS date_of_last_purchase
-    FROM report_detailed
-    GROUP BY store_id, customer_id, first_name, last_name, email, create_date
-    ORDER BY store_id, customer_id
-);
-RETURN NULL;
-END; $$
+        COUNT(DISTINCT customer_id) AS num_inactive_customers,
+        SUM(amount)/COUNT(DISTINCT DATE_TRUNC('month', payment_date))/num_inactive_customers AS avg_spend_per_month,
+        COUNT(store_id) AS num_payments
+    FROM inactive_customers
+    GROUP BY store_id;
+    RETURN NEW;
+END; 
+$$;
 
--- Trigger to call the refresh_reports function whenever a new row is inserted into the payment table
-CREATE TRIGGER refresh_reports
-AFTER INSERT ON payment
-FOR EACH ROW
-EXECUTE PROCEDURE refresh_reports();
+-- Create a trigger to refresh the summary report table after each update --
+CREATE TRIGGER new_inactive_customer
+    AFTER INSERT ON inactive_customers
+    FOR EACH STATEMENT
+    EXECUTE PROCEDURE refresh_inactive_customers_by_store();
 
--- Test the trigger and select from the detailed table to see the results
-INSERT INTO payment VALUES (999999, 1, 1, 1, 2.99, '2021-01-01 00:00:00.000000');
-SELECT * FROM report_detailed WHERE payment_id = 999999;
-ORDER BY payment_date DESC;
+CREATE TRIGGER delete_inactive_customer
+    AFTER DELETE ON inactive_customers
+    FOR EACH STATEMENT
+    EXECUTE PROCEDURE refresh_inactive_customers_by_store();
 
--- Delete test data
-DELETE FROM payment WHERE payment_id = 999999;
+-- Test the triggers by inserting and deleting a row in inactive_customers --
+INSERT INTO inactive_customers VALUES (3, 600, 0, 'Test User', 'email@abc.com', '2023-01-01', 99.99, '2021-01-01 09:28:31.996577', 32999);
+
+SELECT COUNT(*) FROM inactive_customers;
+SELECT SUM(num_payments) FROM inactive_customers_by_store;
+SELECT * FROM inactive_customers_by_store;
+
+DELETE FROM inactive_customers WHERE customer_id = 600;
