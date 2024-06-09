@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+	    <pattern>ALL CAREERS</pattern>
+	    <template>
+	        Select any of the following to see the overview of the careers.
+	        <button>
+                <text>Software Developer</text>
+                <postback>SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>Data Analyst</text>
+                <postback>DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>Cybersecurity Analyst</text>
+                <postback>CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>Systems Administrator</text>
+                <postback>SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>Machine Learning Engineer</text>
+                <postback>MACHINE LEARNING ENGINEER</postback>
+            </button>
+	    </template>
+    </category>
+    
+	<category>
+	    <pattern>SOFTWARE DEVELOPER</pattern>
+	    <template>
+	        SOFTWARE DEVELOPER
+            <br/><br/>A Software Developer focuses on coding, designing, and testing software applications. They work with programming languages such as Java, Python, and C++. Typical responsibilities include developing software solutions, collaborating with cross-functional teams, and maintaining existing software applications.
+            <br/><br/>Key Skills:
+            <br/>1. Proficiency in programming languages (Java, Python, C++)
+            <br/>2. Problem-solving abilities
+            <br/>3. Experience with software development methodologies like Agile
+	        <br/><br/><link>
+	            <text>More Info on Software Developers</text>
+	            <url>https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm</url>
+            </link>
+            <reply>
+                <text>See all careers</text>
+                <postback>ALL CAREERS</postback>
+            </reply>
+            <reply>
+                <text>Home</text>
+                <postback>HOME</postback>
+            </reply>
+	    </template>
+    </category>
+    
+    <category>
+        <pattern>DATA ANALYST</pattern>
+        <template>
+            DATA ANALYST
+            <br/><br/>A Data Analyst specializes in interpreting data, analyzing results, and creating reports. They use statistical techniques to provide insights that help organizations make informed decisions. Data Analysts often work with databases, data visualization tools, and statistical software.
+            <br/><br/>Key Skills:
+            <br/>1. Strong analytical and statistical skills
+            <br/>2. Proficiency in data visualization tools (Tableau, Power BI)
+            <br/>3. Experience with database management and SQL
+            <br/><br/><link>
+                <text>More Info on Data Analysts</text>
+                <url>https://www.bls.gov/ooh/math/data-scientists.htm</url>
+            </link>
+            <reply>
+                <text>See all careers</text>
+                <postback>ALL CAREERS</postback>
+            </reply>
+            <reply>
+                <text>Home</text>
+                <postback>HOME</postback>
+            </reply>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CYBERSECURITY ANALYST</pattern>
+        <template>
+            CYBERSECURITY ANALYST
+            <br/><br/>A Cybersecurity Analyst is responsible for protecting an organization’s systems and networks from cyber threats. They monitor networks for security breaches, investigate incidents, and implement security measures to prevent future attacks.
+            <br/><br/>Key Skills:
+            <br/>1. Knowledge of network and system security
+            <br/>2. Proficiency in security tools and technologies (firewalls, antivirus software)
+            <br/>3. Incident response and threat analysis skills
+            <br/><br/><link>
+                <text>More Info on Cybersecurity Analysts</text>
+                <url>https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm</url>
+            </link>
+            <reply>
+                <text>See all careers</text>
+                <postback>ALLCAREERS</postback>
+            </reply>
+            <reply>
+                <text>Home</text>
+                <postback>HOME</postback>
+            </reply>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SYSTEMS ADMINISTRATOR</pattern>
+        <template>
+            SYSTEMS ADMINISTRATOR
+            <br/><br/>A Systems Administrator manages and maintains an organization’s IT infrastructure, including servers, networks, and applications. They ensure the efficient operation of IT systems and provide technical support to users.
+            <br/><br/>Key Skills:
+            <br/>1. Proficiency in operating systems (Windows, Linux)
+            <br/>2. Network configuration and management skills
+            <br/>3. Experience with system monitoring and troubleshooting
+            <br/><br/><link>
+                <text>More Info on Systems Administrators</text>
+                <url>https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm</url>
+            </link>
+            <reply>
+                <text>See all careers</text>
+                <postback>ALL CAREERS</postback>
+            </reply>
+            <reply>
+                <text>Home</text>
+                <postback>HOME</postback>
+            </reply>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MACHINE LEARNING ENGINEER</pattern>
+        <template>
+            MACHINE LEARNING ENGINEER
+            <br/><br/>A Machine Learning Engineer develops and implements machine learning models and algorithms. They work with large datasets to train models, validate their performance, and deploy them into production environments. Machine Learning Engineers often collaborate with data scientists and software engineers.
+            <br/><br/>Key Skills:
+            <br/>1. Proficiency in machine learning frameworks (TensorFlow, PyTorch)
+            <br/>2. Strong programming skills (Python, R)
+            <br/>3. Experience with data preprocessing and model evaluation
+            <br/><br/><link>
+                <text>More Info on Machine Learning Engineers</text>
+                <url>https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm</url>
+            </link>
+            <reply>
+                <text>See all careers</text>
+                <postback>ALL CAREERS</postback>
+            </reply>
+            <reply>
+                <text>Home</text>
+                <postback>HOME</postback>
+            </reply>
+        </template>
+    </category>
+    
+</aiml>

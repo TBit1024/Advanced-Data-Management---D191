@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<category>
+        <pattern>QUIZ</pattern>
+        <template>
+            <think>
+                <set name="question_number">1</set>
+                <set name="software_developer">0</set>
+                <set name="data_analyst">0</set>
+                <set name="cybersecurity_analyst">0</set>
+                <set name="systems_administrator">0</set>
+                <set name="ml_engineer">0</set>
+            </think>
+    
+            Welcome to the Career Advisor Quiz!
+            
+            <br/>
+            <br/>
+            
+            This quiz is designed to help you identify potential career paths in the 
+            field of computing based on your interests and skills. Please answer the
+            following questions honestly to receive personalized job recommendations.
+            
+
+            <br/>
+            <br/>
+            
+            Click the “Start Quiz” button to begin.
+            
+            <reply>
+              <text>Start Quiz</text>
+              <postback>Q<get name= "question_number"/></postback>
+            </reply>
+        </template>
+    </category>
+  
+  
+    <category>
+        <pattern>Q1</pattern>
+        <template>
+            <think><set name="question_number"><map name="increment"><get name="question_number"/></map></set></think>
+            
+            Which activity do you enjoy the most?
+            
+            <button>
+                <text>1. Writing code and developing software applications.</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>2. Analyzing and interpreting large datasets.</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>3. Protecting systems and networks from cyber threats.</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>4. Managing and maintaining IT infrastructure.</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>5. Developing and implementing machine learning models.</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Q2</pattern>
+        <template>
+            <think><set name="question_number"><map name="increment"><get name="question_number"/></map></set></think>
+            
+            What type of problems do you prefer solving?
+            
+            <button>
+                <text>1. Creating efficient and innovative software solutions.</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>2. Extracting insights and trends from complex data.</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>3. Detecting and mitigating security vulnerabilities.</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>4. Ensuring the smooth operation of IT systems.</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>5. Training algorithms to learn from data and make predictions.</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Q3</pattern>
+        <template>
+            <think><set name="question_number"><map name="increment"><get name="question_number"/></map></set></think>
+            
+            What tools or technologies are you most interested in?
+            
+            <button>
+                <text>1. Integrated Development Environments (IDEs) and programming languages like Java or Python.</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>2. Data visualization tools like Tableau or statistical software.</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>3. Security tools like firewalls and intrusion detection systems.</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>4. Operating systems like Linux and Windows Server.</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>5. Machine learning frameworks like TensorFlow and PyTorch.</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+
+    <category>
+        <pattern>Q4</pattern>
+        <template>
+            <think><set name="question_number"><map name="increment"><get name="question_number"/></map></set></think>
+            
+            Which work environment appeals to you the most?
+            
+            <button>
+                <text>1. A collaborative environment where you can work with a team to develop software.</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>2. An analytical setting where you can work with data to drive decisions.</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>3. A secure environment where you can monitor and protect IT systems.</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>4. A technical environment where you can manage and troubleshoot networks and servers.</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>5. A research-oriented environment where you can experiment with algorithms and models.</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Q5</pattern>
+        <template>
+            <think><set name="question_number"><map name="increment"><get name="question_number"/></map></set></think>
+            
+            What kind of projects do you find most fulfilling?
+            
+            <button>
+                <text>1. Developing new applications and features for users.</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>2. Conducting data analysis to inform business strategies.</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>3. Investigating and preventing cyber attacks.</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>4. Maintaining and upgrading IT systems and infrastructure.</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>5. Building intelligent systems that learn and adapt.</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Q6</pattern>
+        <template>
+            <think><set name="quiz_complete">Yes</set></think>
+            
+            Thank you for completing our Career Advice Quiz!
+            
+            <br/><br/>
+            
+            Out of the following positions, which one do you think you most closely aligned with?
+            
+            <button>
+                <text>Software Developer</text>
+                <postback>ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>Data Analyst</text>
+                <postback>ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>Cybersecurity Anaylst</text>
+                <postback>ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>Systems Administrator</text>
+                <postback>ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>Machine learning Engineer</text>
+                <postback>ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>Q6</pattern>
+        <template>
+            <think><set name="quiz_complete">Yes</set></think>
+            
+            See results:
+            
+            <br/><br/>
+            
+            Out of the following positions, which one do you think you most closely aligned with?
+            
+            <button>
+                <text>Software Developer</text>
+                <postback>FINAL ANSWER SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>Data Analyst</text>
+                <postback>FINAL ANSWER DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>Cybersecurity Anaylst</text>
+                <postback>FINAL ANSWER CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>Systems Administrator</text>
+                <postback>FINAL ANSWER SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>Machine learning Engineer</text>
+                <postback>FINAL ANSWER MACHINE LEARNING ENGINEER</postback>
+            </button>
+        </template>
+    </category>
+  
+</aiml>

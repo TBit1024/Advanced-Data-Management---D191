@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>*</pattern>
+    <template>
+        Hello!<br/><br/>
+        The career advisors have crafted a quiz to provide you 
+        with tailored career advice in the technology field. By understanding your 
+        preferences and strengths, the chatbot can recommend job roles that align 
+        with your profile, helping you make informed decisions about your career 
+        path after graduation.<br/><br/>
+        You may either take the quiz or see the list of careers we have available.
+
+        <reply>
+            <text>Career Advice (Quiz)</text>
+            <postback>QUIZ</postback>
+        </reply>
+        <reply>
+            <text>Career List</text>
+            <postback>ALL CAREERS</postback>
+        </reply>
+        <condition name="quiz_complete">
+            <li value="Yes"><reply><text>See your recommended career</text><postback>RESULTS</postback></reply></li>
+        </condition>
+        
+    </template>
+  </category>
+<category><pattern>QUIZ</pattern><template>Add response for QUIZ</template></category>
+<category><pattern>ALL CAREERS</pattern><template>Add response for ALL CAREERS</template></category>
+<category><pattern>RESULTS</pattern><template>Add response for RESULTS</template></category>
+</aiml>

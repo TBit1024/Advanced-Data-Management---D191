@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<category>
+        <pattern>ANSWER SOFTWARE DEVELOPER</pattern>
+        <template>
+            <think><set name="software_developer"><map name="increment"><get name="software_developer"/></map></set></think>
+            <button>
+                <text>Next Question</text>
+                <postback>Q<get name="question_number"/></postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>ANSWER DATA ANALYST</pattern>
+        <template>
+            <think><set name="data_analyst"><map name="increment"><get name="data_analyst"/></map></set></think>
+            <button>
+                <text>Next Question</text>
+                <postback>Q<get name="question_number"/></postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>ANSWER CYBERSECURITY ANALYST</pattern>
+        <template>
+            <think><set name="cybersecurity_analyst"><map name="increment"><get name="cybersecurity_analyst"/></map></set></think>
+            <button>
+                <text>Next Question</text>
+                <postback>Q<get name="question_number"/></postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>ANSWER SYSTEMS ADMINISTRATOR</pattern>
+        <template>
+            <think><set name="systems_administrator"><map name="increment"><get name="systems_administrator"/></map></set></think>
+            <button>
+                <text>Next Question</text>
+                <postback>Q<get name="question_number"/></postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>ANSWER MACHINE LEARNING ENGINEER</pattern>
+        <template>
+            <think><set name="ml_engineer"><map name="increment"><get name="ml_engineer"/></map></set></think>
+            <button>
+                <text>Next Question</text>
+                <postback>Q<get name="question_number"/></postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>FINAL ANSWER SOFTWARE DEVELOPER</pattern>
+        <template>
+            <think><set name="software_developer"><map name="increment"><get name="software_developer"/></map></set></think>
+            <button>
+                <text>See results</text>
+                <postback>RESULTS</postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>FINAL ANSWER DATA ANALYST</pattern>
+        <template>
+            <think><set name="data_analyst"><map name="increment"><get name="data_analyst"/></map></set></think>
+            <button>
+                <text>See results</text>
+                <postback>RESULTS</postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>FINAL ANSWER CYBERSECURITY ANALYST</pattern>
+        <template>
+            <think><set name="cybersecurity_analyst"><map name="increment"><get name="cybersecurity_analyst"/></map></set></think>
+            <button>
+                <text>See results</text>
+                <postback>RESULTS</postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>FINAL ANSWER SYSTEMS ADMINISTRATOR</pattern>
+        <template>
+            <think><set name="systems_administrator"><map name="increment"><get name="systems_administrator"/></map></set></think>
+            <button>
+                <text>See results</text>
+                <postback>RESULTS</postback>
+            </button>
+        </template>
+     </category>
+     
+     <category>
+        <pattern>FINAL ANSWER MACHINE LEARNING ENGINEER</pattern>
+        <template>
+            <think><set name="ml_engineer"><map name="increment"><get name="ml_engineer"/></map></set></think>
+            <button>
+                <text>See results</text>
+                <postback>RESULTS</postback>
+            </button>
+        </template>
+     </category>
+</aiml>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<category>
+        <pattern>RESULTS</pattern>
+        <template>
+            
+            Thank you for taking the quiz! <br/><br/>
+            We recommend you become a 
+            <condition name="software_developer">
+                <li value="6"> Software Developer!<br/></li>
+                <li value="5"> Software Developer!<br/></li>
+                <li value="4"> Software Developer!<br/></li>
+                <li value="3"> Software Developer!<br/></li>
+            </condition>
+            <condition name="data_analyst">
+                <li value="6"> Data Analyst!!<br/></li>
+                <li value="5"> Data Analyst!<br/></li>
+                <li value="4"> Data Analyst!<br/></li>
+                <li value="3"> Data Analyst!<br/></li>
+            </condition>
+            <condition name="cybersecurity_analyst">
+                <li value="6"> Cybersecurity Analyst!<br/></li>
+                <li value="5"> Cybersecurity Analyst!<br/></li>
+                <li value="4"> Cybersecurity Analyst!<br/></li>
+                <li value="3"> Cybersecurity Analyst!<br/></li>
+            </condition>
+            <condition name="systems_administrator">
+                <li value="6"> Systems Administrator!<br/></li>
+                <li value="5"> Systems Administrator!<br/></li>
+                <li value="4"> Systems Administrator!<br/></li>
+                <li value="3"> Systems Administrator!<br/></li>
+            </condition>
+            <condition name="ml_engineer">
+                <li value="6"> Machine Learning Engineer!<br/></li>
+                <li value="5"> Machine Learning Engineer!<br/></li>
+                <li value="4"> Machine Learning Engineer!<br/></li>
+                <li value="3"> Machine Learning Engineer!<br/></li>
+            </condition>
+          
+            <br/><br/>You have also shown interest in the following roles and may
+            be interested in learning more about them:<br/>
+            <condition name="software_developer">
+                <li value="5">- Software Developer<br/></li>
+                <li value="4">- Software Developer<br/></li>
+                <li value="3">- Software Developer<br/></li>
+                <li value="2">- Software Developer<br/></li>
+                <li value="1">- Software Developer<br/></li>
+            </condition>
+            <condition name="data_analyst">
+                <li value="5">- Data Analyst<br/></li>
+                <li value="4">- Data Analyst<br/></li>
+                <li value="3">- Data Analyst<br/></li>
+                <li value="2">- Data Analyst<br/></li>
+                <li value="1">- Data Analyst<br/></li>
+            </condition>
+            <condition name="cybersecurity_analyst">
+                <li value="5">- Cybersecurity Analyst<br/></li>
+                <li value="4">- Cybersecurity Analyst<br/></li>
+                <li value="3">- Cybersecurity Analyst<br/></li>
+                <li value="2">- Cybersecurity Analyst<br/></li>
+                <li value="1">- Cybersecurity Analyst<br/></li>
+            </condition>
+            <condition name="systems_administrator">
+                <li value="5">- Systems Administrator<br/></li>
+                <li value="4">- Systems Administrator<br/></li>
+                <li value="3">- Systems Administrator<br/></li>
+                <li value="2">- Systems Administrator<br/></li>
+                <li value="1">- Systems Administrator<br/></li>
+            </condition>
+            <condition name="ml_engineer">
+                <li value="5">- Machine Learning Engineer<br/></li>
+                <li value="4">- Machine Learning Engineer<br/></li>
+                <li value="3">- Machine Learning Engineer<br/></li>
+                <li value="2">- Machine Learning Engineer<br/></li>
+                <li value="1">- Machine Learning Engineer<br/></li>
+            </condition>
+          
+            
+            <br/><br/>We've also provided overviews and information for each 
+            role we test for. Feel free to select any of the options below to 
+            read more about them.
+	        <button>
+                <text>Software Developer</text>
+                <postback>SOFTWARE DEVELOPER</postback>
+            </button>
+            <button>
+                <text>Data Analyst</text>
+                <postback>DATA ANALYST</postback>
+            </button>
+            <button>
+                <text>Cybersecurity Analyst</text>
+                <postback>CYBERSECURITY ANALYST</postback>
+            </button>
+            <button>
+                <text>Systems Administrator</text>
+                <postback>SYSTEMS ADMINISTRATOR</postback>
+            </button>
+            <button>
+                <text>Machine Learning Engineer</text>
+                <postback>MACHINE LEARNING ENGINEER</postback>
+            </button>
+            <button>
+                <text>-- Start Over --</text>
+                <postback>HOME</postback>
+            </button>
+          
+        </template>
+    </category>
+</aiml>
